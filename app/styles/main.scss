@@ -1,31 +1,16 @@
 // bower:scss
 // endbower
 
-body {
-  background: #fafafa;
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  color: #333;
-}
+// https://color.adobe.com/1944mustang-color-theme-4817/
+$color-background: #263248;
+$color-border: #000000;
+$color-emphasis: #FF9800;
+$color-main: #7E8AA2;
 
-.hero-unit {
-  margin: 50px auto 0 auto;
-  width: 300px;
-  font-size: 18px;
-  font-weight: 200;
-  line-height: 30px;
-  background-color: #eee;
-  border-radius: 6px;
-  padding: 60px;
-  h1 {
-    font-size: 60px;
-    line-height: 1;
-    letter-spacing: -1px;
-  }
-}
+$sidebar-width: 15rem;
 
-.browserupgrade {
-  margin: 0.2em 0;
-  background: #ccc;
-  color: #000;
-  padding: 0.2em 0;
-}
+
+@import "layout";
+@import "typography";
+@import "components/movie-suggestions";
+@import "components/side-list";

@@ -1,0 +1,40 @@
+.side-list {
+	background: $color-main;
+	border-left: 4px solid $color-border;
+	color: $color-background;
+	padding: 1em;
+	position: relative;
+	width: $sidebar-width;
+
+	h2 {
+		margin-top: 0;
+	}
+
+	.toggle {
+		background: $color-border;
+		border: 0;
+		border-top-left-radius: 5px;
+		border-bottom-left-radius: 5px;
+		color: $color-main;
+		cursor: pointer;
+		font-size: 1.4em;
+		padding: 0.5em 0.4em 0.6em;
+
+		position: absolute;
+		top: 50%;
+		right: 100%;
+		transform: translateY(-50%);
+
+		&::after {
+			content: '\25c0';
+		}
+
+		&:focus {
+			outline: 0
+		}
+
+		&:hover {
+			color: white;
+		}
+	}
+}
