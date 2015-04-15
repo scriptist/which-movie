@@ -1,8 +1,17 @@
 class AppViewModel
 	suggestionCount: 5
 	constructor: ->
-		@movies = ko.observableArray()
-		@suggestions = ko.observableArray()
+		@winner = ko.observable null
+		@movies = ko.observableArray []
+		@suggestions = ko.observableArray []
+		@suggestions.extend({ rateLimit: 50 });
+		@remainingSuggestions = ko.computed =>
+			@suggestions().filter (suggestion) ->
+				!suggestion.eliminated()
+
+		@remainingSuggestions.subscribe (value) =>
+			if value.length == 1
+				@setWinner value[0]
 
 		# Load from storage
 		if not @importFromLocalStorage()
@@ -49,6 +58,10 @@ class AppViewModel
 		@sidebarCollapsed = ko.observable !!@movies().length
 
 		return
+
+	setWinner: (suggestion) ->
+		@winner suggestion
+		suggestion.movie.watched true
 
 	toggleSlidebar: ->
 		@sidebarCollapsed !@sidebarCollapsed()

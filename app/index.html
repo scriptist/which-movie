@@ -19,7 +19,7 @@
 		<link href='http://fonts.googleapis.com/css?family=Slabo+27px|Roboto+Slab:700' rel='stylesheet' type='text/css'>
 
 	</head>
-	<body data-bind="css: {'sidebar-collapsed': sidebarCollapsed}">
+	<body data-bind="css: {'sidebar-collapsed': sidebarCollapsed, 'winner-found': winner}">
 		<!--[if lt IE 10]>
 			<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 		<![endif]-->
@@ -45,7 +45,6 @@
 
 		<!-- build:js scripts/vendor.js -->
 		<!-- bower:js -->
-		<script src="/bower_components/jquery/dist/jquery.js"></script>
 		<script src="/bower_components/knockout/dist/knockout.js"></script>
 		<!-- endbower -->
 		<!-- endbuild -->
