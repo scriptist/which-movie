@@ -1,9 +1,14 @@
 main {
 	flex-grow: 1;
 	text-align: center;
+	transition: transform $sidebar-speed;
 
 	// Vertical center
 	display: flex;
 	align-items: center;
 	justify-content: center;
+
+	.sidebar-collapsed & {
+		transform: translateX($sidebar-width / 2);
+	}
 }

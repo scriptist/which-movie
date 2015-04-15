@@ -19,7 +19,7 @@
 		<link href='http://fonts.googleapis.com/css?family=Slabo+27px|Roboto+Slab:700' rel='stylesheet' type='text/css'>
 
 	</head>
-	<body>
+	<body data-bind="css: {'sidebar-collapsed': sidebarCollapsed}">
 		<!--[if lt IE 10]>
 			<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 		<![endif]-->
@@ -31,14 +31,16 @@
 		</main>
 
 		<aside class="side-list">
-			<h2>The Full List</h2>
-			<ul data-bind="foreach: movies">
-				<li data-bind="css: {watched: watched}">
-					<span class="mark" data-bind="click: toggle"></span><!--
-					--><input type="text" data-bind="movieInput: name">
-				</li>
-			</ul>
-			<button class="toggle"></button>
+			<div class="inner">
+				<h2>The Full List</h2>
+				<ul data-bind="foreach: movies">
+					<li data-bind="css: {watched: watched}">
+						<span class="mark" data-bind="click: toggle"></span><!--
+						--><input type="text" data-bind="movieInput: name">
+					</li>
+				</ul>
+			</div>
+			<button class="toggle" data-bind="click: toggleSlidebar"></button>
 		</aside>
 
 		<!-- build:js scripts/vendor.js -->

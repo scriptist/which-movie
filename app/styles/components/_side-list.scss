@@ -2,10 +2,26 @@
 	background: $color-main;
 	border-left: 4px solid $color-border;
 	color: $color-background;
-	padding: 1em;
 	position: relative;
+	transition: transform $sidebar-speed;
 	user-select: none;
 	width: $sidebar-width;
+
+	.sidebar-collapsed & {
+		transform: translateX($sidebar-width);
+	}
+
+	.inner {
+		max-height: 100%;
+		overflow: auto;
+		padding: 1em;
+
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+	}
 
 	h2 {
 		margin-top: 0;
@@ -27,7 +43,7 @@
 		transform: translateY(-50%);
 
 		&::after {
-			content: '\25c0';
+			content: '\25b6';
 		}
 
 		&:focus {
@@ -37,10 +53,15 @@
 		&:hover {
 			color: white;
 		}
+
+		.sidebar-collapsed &::after {
+			content: '\25c0';
+		}
 	}
 
 	ul {
 		list-style: none;
+		height: 100%;
 		margin: 0;
 		padding: 0;
 	}
@@ -72,7 +93,7 @@
 			color: inherit;
 			font-family: inherit;
 			font-size: inherit;
-			width: calc(#{$sidebar-width} - 2em);
+			width: calc(#{$sidebar-width} - 4.7em);
 
 			&:focus {
 				outline: none;

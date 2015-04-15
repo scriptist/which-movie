@@ -45,7 +45,13 @@ class AppViewModel
 		@movies.subscribe =>
 			@saveToLocalStorage()
 
+		# Sidebar
+		@sidebarCollapsed = ko.observable !!@movies().length
+
 		return
+
+	toggleSlidebar: ->
+		@sidebarCollapsed !@sidebarCollapsed()
 
 	shuffleArray: (a) ->
 		i = a.length
