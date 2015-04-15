@@ -27,7 +27,8 @@ gulp.task('scripts', function () {
   return gulp.src('app/scripts/**/*.coffee')
     .pipe($.coffee())
     .pipe($.concat('main.js'))
-    .pipe(gulp.dest('.tmp/scripts'));
+    .pipe(gulp.dest('.tmp/scripts'))
+    .pipe(reload({stream: true}));
 });
 
 gulp.task('jshint', function () {
