@@ -26,7 +26,7 @@
 		<main>
 			<button class="button" data-bind="click: generateSuggestions, visible: !suggestions().length">Start</button>
 			<ul class="movie-suggestions" data-bind="foreach: suggestions, visible: suggestions().length">
-				<li data-bind="text: movie.name">Movie</li>
+				<li data-bind="click: toggle, css: {eliminated: eliminated}, text: movie.name">Movie</li>
 			</ul>
 		</main>
 

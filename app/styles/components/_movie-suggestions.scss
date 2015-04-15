@@ -4,8 +4,14 @@
 
 	li {
 		color: $color-emphasis;
+		cursor: pointer;
 		font-family: 'Slabo 27px', serif;
 		font-size: 8vh;
 		line-height: 12vh;
+
+		&.eliminated {
+			opacity: 0.5;
+			text-decoration: line-through;
+		}
 	}
 }

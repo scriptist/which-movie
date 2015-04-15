@@ -7,12 +7,35 @@ class AppViewModel
 		# Load from storage
 		if not @importFromLocalStorage()
 			@movies = ko.observableArray [
-				new Movie 'Jim'
-				new Movie 'Cheese'
-				new Movie 'Baked'
-				new Movie 'Jumanji'
-				new Movie 'Potato', true
-				new Movie 'Cranberry', true
+				new Movie 'Austin Powers II'
+				new Movie 'Austin Powers III'
+				new Movie 'Back to the Future'
+				new Movie 'The Castle'
+				new Movie 'The Devil Wears Prada'
+				new Movie 'Die Welle'
+				new Movie 'Dr Strangelove'
+				new Movie 'Easy A'
+				new Movie 'Fight Club'
+				new Movie 'Galaxy Quest'
+				new Movie 'Ghostbusters'
+				new Movie 'Godzilla'
+				new Movie 'Groundhog Day'
+				new Movie 'Home'
+				new Movie 'LEGO Movie'
+				new Movie 'Life is Beautiful'
+				new Movie 'Looper'
+				new Movie 'Magicians'
+				new Movie 'Mean Girls'
+				new Movie 'Moon'
+				new Movie 'Mulan'
+				new Movie 'Primer'
+				new Movie 'Rush Hour'
+				new Movie 'Strictly Ballroom'
+				new Movie 'This is Spinal Tap'
+				new Movie 'Tripod vs the Dragon'
+				new Movie 'Who Framed Roger Rabbit'
+				new Movie 'Wreck-It Ralph'
+				new Movie 'Young Frankenstein'
 			]
 
 		# Initial Save
@@ -45,7 +68,6 @@ class AppViewModel
 
 		for movie in chosen
 			@suggestions.push new Suggestion movie
-		console.log @suggestions()
 
 
 	saveToLocalStorage: ->
@@ -54,6 +76,12 @@ class AppViewModel
 	importFromLocalStorage: ->
 		try
 			movies = JSON.parse localStorage['movies']
+			movies.sort (a, b) ->
+				if a.name < b.name
+					return -1
+				if a.name > b.name
+					return 1
+				return 0
 			for movie in movies
 				@movies.push new Movie movie.name, movie.watched
 			return true
