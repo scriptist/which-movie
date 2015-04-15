@@ -1,6 +1,8 @@
 class AppViewModel
+	suggestionCount: 5
 	constructor: ->
 		@movies = ko.observableArray()
+		@suggestions = ko.observableArray()
 
 		# Load from storage
 		if not @importFromLocalStorage()
@@ -21,6 +23,30 @@ class AppViewModel
 			@saveToLocalStorage()
 
 		return
+
+	shuffleArray: (a) ->
+		i = a.length
+		while --i > 0
+			j = ~~(Math.random() * (i + 1))
+			t = a[j]
+			a[j] = a[i]
+			a[i] = t
+		a
+
+	generateSuggestions: ->
+		unwatchedMovies = @movies().filter (movie) ->
+			!movie.watched()
+
+		if unwatchedMovies.length <= @suggestionCount
+			return alert "The list should contain more than #{@suggestionCount} unwatched movies."
+
+		shuffled = @shuffleArray unwatchedMovies
+		chosen = shuffled.slice 0, @suggestionCount
+
+		for movie in chosen
+			@suggestions.push new Suggestion movie
+		console.log @suggestions()
+
 
 	saveToLocalStorage: ->
 		localStorage['movies'] = ko.toJSON @movies

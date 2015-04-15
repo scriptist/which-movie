@@ -1,0 +1,14 @@
+.button {
+	background-color: $color-emphasis;
+	border: none;
+	color: $color-background;
+	cursor: pointer;
+	font-family: 'Slabo 27px', serif;
+	font-size: 3em;
+	padding: 0.2em 0.6em;
+	transition: background-color 0.4s;
+
+	&:hover {
+		background-color: darken($color-emphasis, 15);
+	}
+}
