@@ -23,7 +23,6 @@
 		<!--[if lt IE 10]>
 			<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 		<![endif]-->
-
 		<main class="movie-suggestions">
 			<ul>
 				<li>Jim</li>
@@ -36,9 +35,11 @@
 
 		<aside class="side-list">
 			<h2>The Full List</h2>
-			<ul>
-				<li>Potato</li>
-				<li>Cranberry</li>
+			<ul data-bind="foreach: movies">
+				<li data-bind="css: {watched: watched}">
+					<span class="mark" data-bind="click: toggle"></span><!--
+					--><input type="text" data-bind="movieInput: name">
+				</li>
 			</ul>
 			<button class="toggle"></button>
 		</aside>

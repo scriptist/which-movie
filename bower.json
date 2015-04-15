@@ -2,6 +2,7 @@
   "name": "which-movie",
   "private": true,
   "dependencies": {
-    "jquery": "~2.1.1"
+    "jquery": "~2.1.1",
+    "knockout": "~3.3.0"
   }
 }
